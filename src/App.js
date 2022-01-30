@@ -14,7 +14,7 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
   
-const columns = [
+const columns: GridColDef = [
   { field: 'col1', headerName: 'Book Title', width: 250, },
   { field: 'col2', headerName: 'Author', width: 200, headerClassName:'headerNameStyle' },
   { field: 'col3', headerName: 'Publication date', width: 150, headerClassName:'headerNameStyle' },
