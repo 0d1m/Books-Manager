@@ -1,6 +1,11 @@
 .App {
   text-align: center;
+  background-color: #fbfdff;
 }
+
+/*.headerNameStyle {
+  font-weight: bold;
+}*/
 
 .App-logo {
   height: 40vmin;
