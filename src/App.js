@@ -269,7 +269,7 @@ class App extends Component {
                   const url_index = this.state.prices.indexOf(currentprice, this.state.prices.indexOf(currentprice))
                   const url = "https://amazon.fr"+this.state.links[url_index]
                   return (
-                    <ListItem disablePadding>
+                    <ListItem disablePadding key={Math.random()} >
                       <ListItemButton component="a" target="_blank" href={url}>
                         <ListItemText primary={currentprice+ " €"}  />
                       </ListItemButton>
