@@ -10,7 +10,7 @@ const PORT = 4000;
 app.use(cors())
 app.use(express.json())
 
-const MONGODB_URI = 'mongodb+srv://odim:TjckOtWHyxXERa8i@cluster0.fecgf.mongodb.net/BooksDB?retryWrites=true&w=majority'
+const MONGODB_URI = 'your_mongoDB_connection_link_here' //for more infos check MongoDB\'s documentation
 
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
