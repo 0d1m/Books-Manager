@@ -1,7 +1,8 @@
 import React, { Component,  }  from 'react'
+import { BrowserRouter as Router, Route, Routes/*instead of Switch*/, Redirect, Link } from 'react-router-dom'
 import axios from 'axios'
 import cheerio from 'cheerio'
-import './App.css'
+import '../App.css'
 import { DataGrid, GridColDef } from '@mui/x-data-grid'
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
@@ -40,7 +41,7 @@ const styles= {
     }
   };
 
-class App extends Component {
+export default class home extends Component { 
   constructor(props){
     super(props)
     this.state = { 
@@ -140,8 +141,8 @@ class App extends Component {
       links: links
     })
     this.forceUpdate();
-    //console.log(this.state.links);
-    //console.log(this.state.prices);
+    console.log(this.state.links);
+    console.log(this.state.prices);
   }
 
 
@@ -184,14 +185,13 @@ class App extends Component {
         }],
       bookTitle: "", author: "", publishDate: "", editor: "", genre: "", price: "",
     })
-    axios.post('http://localhost:4000/books/add', newbook)
-      .then(res => console.log(res.data))
-  }
+    
+    
 
   render() {
-    return ( 
-      <div className="App" style={styles.bodyStyle}>
-          <h1> Welcome reader ! </h1>
+    return (
+    <div>
+        <h1> Welcome reader ! </h1>
           <h2> Here are all the books available in our database now. </h2>
 
           <form style={styles.addBookFormStyle} onSubmit={this.handleSubmit.bind(this)} >
@@ -258,7 +258,15 @@ class App extends Component {
           </Stack>
 
           <Box sx={{ width: '100%', maxWidth: 650, bgcolor: '#fbfdff' }}>
-            <List>
+          <Link 
+            to={{
+              pathname: "/page",
+              state:  this.state.prices
+            }}
+          >
+          prices
+          </Link>
+            {/*<List>
                <div style={{ fontSize:'18px' }}>
                 <p>
                   <b>Search results: {this.state.searchQuery} found prices.</b>
@@ -277,23 +285,10 @@ class App extends Component {
                     </ListItem>
                   )
                 })}
-            </List>              
+            </List> */}             
           </Box>
           <br/><br/>
-      </div>
+    </div>
     );
   }
-  
 }
-
-export default App;
-
-
-
-
-
-/*const rows: GridRowsProp = [
-  { id: 1, col1: 'Antigone', col2: 'Jean Anouilh', col3: '1946' },
-  { id: 2, col1: 'La boîte à merveilles', col2: 'Ahmed Sefrioui', col3: '1954', col5: 'autobiographie' },
-  { id: 3, col1: 'Le dernier jour d\'un condamné', col2: 'Victor Hugo', col5: 'roman' },
-]; */

@@ -1,16 +1,18 @@
 const express = require("express");
 const cors = require("cors");
+const dotenv = require('dotenv');
 const mongoose = require('mongoose')
 const swaggerUI = require("swagger-ui-express");
 const swaggerJsDoc = require("swagger-jsdoc");
 
+dotenv.config();
 const app = express()
 const PORT = 4000;
 
 app.use(cors())
 app.use(express.json())
 
-const MONGODB_URI = 'your_mongoDB_connection_link_here' //for more infos check MongoDB\'s documentation
+const MONGODB_URI = process.env.MONGODB_URI //for more infos check MongoDB\'s documentation
 
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
